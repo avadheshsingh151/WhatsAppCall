@@ -36,37 +36,37 @@ public class WhatsAppNotiListener extends NotificationListenerService {
         if(notificationText.contains("Calling")){
             if (WHATSAPP_CURRENT_STATE != WHATSAPP_STATE.CALLING.ordinal()){
                 WHATSAPP_CURRENT_STATE = WHATSAPP_STATE.CALLING.ordinal();
-                showToast("WhatsApp@vi: Outgoing Call Started") ;
+                showToast("WhatsAppNoti: Outgoing Call Started") ;
             }
         }
         if(notificationText.contains("Ringing")) {
             if (WHATSAPP_CURRENT_STATE != WHATSAPP_STATE.RINGING.ordinal()) {
                 WHATSAPP_CURRENT_STATE = WHATSAPP_STATE.RINGING.ordinal();
-                showToast("WhatsApp@vi: Outgoing Call Ringing");
+                showToast("WhatsAppNoti: Outgoing Call Ringing");
             }
         }
         if (notificationText.contains("Ongoing voice call")) {
             if (WHATSAPP_CURRENT_STATE == WHATSAPP_STATE.RINGING.ordinal() || WHATSAPP_CURRENT_STATE == WHATSAPP_STATE.CALLING.ordinal()) {
                 WHATSAPP_CURRENT_STATE = WHATSAPP_STATE.ONGOING_VOICE_CALL.ordinal();
-                showToast("WhatsApp@vi: Outgoing voice call");
+                showToast("WhatsAppNoti: Outgoing voice call");
             }
         }
         if (notificationText.contains("Ongoing video call")) {
             if (WHATSAPP_CURRENT_STATE == WHATSAPP_STATE.RINGING.ordinal() || WHATSAPP_CURRENT_STATE == WHATSAPP_STATE.CALLING.ordinal()) {
                 WHATSAPP_CURRENT_STATE = WHATSAPP_STATE.ONGOING_VIDEO_CALL.ordinal();
-                showToast("WhatsApp@vi: Outgoing video call");
+                showToast("WhatsAppNoti: Outgoing video call");
             }
         }
         if (notificationText.contains("Incoming voice call")){
             if (WHATSAPP_CURRENT_STATE != WHATSAPP_STATE.INCOMING_VOICE_CALL.ordinal()) {
                 WHATSAPP_CURRENT_STATE = WHATSAPP_STATE.INCOMING_VOICE_CALL.ordinal();
-                showToast("WhatsApp@vi: Incoming voice call");
+                showToast("WhatsAppNoti: Incoming voice call");
             }
         }
         if (notificationText.contains("Incoming video call"))
             if (WHATSAPP_CURRENT_STATE != WHATSAPP_STATE.INCOMING_VIDEO_CALL.ordinal()) {
                 WHATSAPP_CURRENT_STATE = WHATSAPP_STATE.INCOMING_VIDEO_CALL.ordinal();
-                showToast("WhatsApp@vi: Incoming video call");
+                showToast("WhatsAppNoti: Incoming video call");
             }
     }
 

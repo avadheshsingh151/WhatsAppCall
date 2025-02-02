@@ -16,19 +16,19 @@ public class CallReceiver extends BroadcastReceiver {
         if (state != null) {
             LogHandler.i(TAG, "TelephonyManager-"+state);
             if (state.equals(TelephonyManager.EXTRA_STATE_RINGING)) {
-                Toast.makeText(context, "WhatsApp@vi: Incoming call Ringing", Toast.LENGTH_SHORT).show();
-                LogHandler.i(TAG, "TelephonyManager-Incoming call Ringing");
+                Toast.makeText(context, "TelephonyManager: RINGING", Toast.LENGTH_SHORT).show();
+                LogHandler.i(TAG, "TelephonyManager: RINGING");
             }
             if (state.equals(TelephonyManager.EXTRA_STATE_OFFHOOK)) {
-                //Toast.makeText(context, "Call is in Progress", Toast.LENGTH_SHORT).show();
-                LogHandler.i(TAG, "TelephonyManager-Call is in Progress");
+                //Toast.makeText(context, "TelephonyManager: OFFHOOK", Toast.LENGTH_SHORT).show();
+                LogHandler.i(TAG, "TelephonyManager: OFFHOOK");
                 String incomingNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER);
                 if (incomingNumber!=null)
-                    LogHandler.d(TAG, "TelephonyManager-Incoming call from: " + incomingNumber);
+                    LogHandler.d(TAG, "TelephonyManager: INCOMING_NUMBER: " + incomingNumber);
             }
             if (state.equals(TelephonyManager.EXTRA_STATE_IDLE)) {
-                Toast.makeText(context, "Call ended.", Toast.LENGTH_SHORT).show();
-                LogHandler.i(TAG, "TelephonyManager-Call ended.");
+                Toast.makeText(context, "TelephonyManager: Call ended.", Toast.LENGTH_SHORT).show();
+                LogHandler.i(TAG, "TelephonyManager: Call ended.");
                 WhatsAppNotiListener.WHATSAPP_CURRENT_STATE =-1;
             }
         }
